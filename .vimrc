@@ -26,6 +26,18 @@ Plugin 'ervandew/supertab'
 
 Plugin 'easymotion/vim-easymotion'
 
+Plugin 'airblade/vim-gitgutter'
+
+Plugin 'bronson/vim-trailing-whitespace'
+
+Plugin 'tpope/vim-commentary'
+
+Plugin 'xuhdev/vim-latex-live-preview'
+
+Plugin 'lervag/vimtex'
+
+Plugin 'dracula/vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -41,6 +53,22 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 set t_Co=256
+syntax on
+" allow backspacing over everything in insert mode
+set bs=indent,eol,start
+" save 50 lines of command line history
+set history=50
+" show cursor position
+set ruler
+" Ignore case for file completion
+set wildignorecase
+
+" show existing tabs as 4 spaces
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
 
 " Ignore case for searches
 set ignorecase
@@ -50,7 +78,7 @@ set hlsearch
 
 set background=dark
 let g:hybrid_custom_term_colors = 1
-colorscheme hybrid
+colorscheme dracula
 
 set number
 set cursorline
@@ -74,3 +102,16 @@ set laststatus=2 " required for the bar to appear
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
+
+" gitgutter
+let g:gitgutter_sign_column_always = 1
+" ctrlp
+" do not use .git directory as base path
+" let g:ctrlp_working_path_mode = 'a'
+autocmd Filetype tex setl updatetime=1
+let g:livepreview_previewer = 'open -a Preview'
+let g:tex_conceal = ""
+" This lets you use tab in filename autocompletion to see directory listing
+" as otherwise you tab through each file
+set wildmenu
+set wildmode=longest,list
