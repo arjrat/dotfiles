@@ -38,6 +38,10 @@ Plugin 'lervag/vimtex'
 
 Plugin 'dracula/vim'
 
+Plugin 'fatih/vim-go'
+
+Plugin 'derekwyatt/vim-scala'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -76,8 +80,8 @@ set ignorecase
 set incsearch
 set hlsearch
 
-set background=dark
-let g:hybrid_custom_term_colors = 1
+" set background=dark
+" let g:hybrid_custom_term_colors = 1
 colorscheme dracula
 
 set number
@@ -115,3 +119,7 @@ let g:tex_conceal = ""
 " as otherwise you tab through each file
 set wildmenu
 set wildmode=longest,list
+" vim autopep8
+au FileType python setlocal formatprg=autopep8\ -
+
+
