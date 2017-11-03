@@ -10,6 +10,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" Plugin 'vim-syntastic/syntastic'
+
 Plugin 'scrooloose/nerdtree'
 
 Plugin 'kien/ctrlp.vim'
@@ -23,6 +25,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'raimondi/delimitmate'
 
 Plugin 'ervandew/supertab'
+" Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'easymotion/vim-easymotion'
 
@@ -41,6 +44,10 @@ Plugin 'dracula/vim'
 Plugin 'fatih/vim-go'
 
 Plugin 'derekwyatt/vim-scala'
+
+Plugin 'SirVer/ultisnips'
+
+Plugin 'honza/vim-snippets'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -107,8 +114,27 @@ let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
 
+" neovim python paths
+let g:python_host_prog  = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
+let g:ycm_python_binary_path = 'python'
+
+"" SRC https://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
+"" YouCompleteMe
+let g:ycm_key_list_previous_completion=['<Up>']
+
+"" Ultisnips
+let g:UltiSnipsExpandTrigger="<c-tab>"
+let g:UltiSnipsListSnippets="<c-s-tab>"
+
+
 " gitgutter
-let g:gitgutter_sign_column_always = 1
+if has('nvim')
+    set signcolumn=yes
+else
+    let g:gitgutter_sign_column_always = 1
+endif
+
 " ctrlp
 " do not use .git directory as base path
 " let g:ctrlp_working_path_mode = 'a'
